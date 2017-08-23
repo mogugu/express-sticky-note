@@ -1,0 +1,40 @@
+.note{
+    position: absolute;
+    width: 200px;
+    min-height: 220px;
+    background-color: #00B7FF;
+    border-bottom-left-radius: 20px 500px;
+    border-bottom-right-radius: 500px 60px;
+    box-shadow: 0 4px 6px 3px rgba(0,0,0,0.6);
+    margin-right: 30px;
+    margin-bottom: 30px;
+}
+.note:after{
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background-image:url("../img/ding.png");
+    background-size: 100% 100%;
+    transform: translateX(-50%);
+    display: block;
+    content: '';
+}
+.note-head{
+    height: 30px;
+    background-color: rgba(0,0,0,.1);
+}
+.note-head .delete{
+    float: right;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    line-height: 30px;
+    font-size: 16px;
+}
+.note-ct{
+    padding: 8px;
+    color: #fff;
+    font-size: 16px;
+}

@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/css/style.css' />
+      <meta charset="utf-8">
+      <title><%= title %></title>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+          <header>
+              <a href="javascript:void(0)" class="btn add">添加</a>
+              <a href="javascript:void(0)" class="btn login">github登录</a>
+          </header>
+          <main id="content">
+
+          </main>
+  <script src="/js/index.js"></script>
   </body>
 </html>
+<!--与后台约定接口信息-->
+<!--1、获取所有note /api/notes  get  req { status:0,data:[]} {status:1,errorMsg:"失败的原因"}-->
+<!--2、创建一个note /api/note/create {note:"hello world"}  post-->
+<!--3、修改一个note /api/note/edit {id: 1,note:"edit one"} post-->
+<!--4、删除一个note /api/note/delete {id:1} post-->

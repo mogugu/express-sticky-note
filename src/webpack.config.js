@@ -12,6 +12,9 @@ module.exports={
         rules: [{
             test: /\.less$/,
             use: ["style-loader","css-loader", "less-loader"]
+        },{
+            test: /\.(png|jpg)$/,
+            use: 'url-loader?limit=8192$name=img/[name]'
         }]
     },
     resolve:{
