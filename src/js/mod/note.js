@@ -3,13 +3,6 @@ require("less/note.less");
 var toast=require("./toast.js").toast;
 var event=require("./event.js");
 
-/*
-* 有id 有文本
-* 先初始化 （设置ID，参数）
-* 创建节点（添加到html)
-* 随机颜色，设置布局
-* 笔记移动
-* */
 function Note(opts) {
    this.initOpt(opts);
    this.creatNote();
@@ -132,5 +125,4 @@ Note.prototype={
        });
     }
 };
-window.Note=Note;
 module.exports.Note=Note;

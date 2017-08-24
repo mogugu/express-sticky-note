@@ -22,7 +22,6 @@ var NoteManager=(function () {
         });
     }
     function add() {
-        console.log("note");
         new Note();
     }
     return{

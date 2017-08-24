@@ -1,28 +1,28 @@
 /******/ (function(modules) { // webpackBootstrap
-/******/ 	// The module cache
+/******/ 	// The model cache
 /******/ 	var installedModules = {};
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/
-/******/ 		// Check if module is in cache
+/******/ 		// Check if model is in cache
 /******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
 /******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
+/******/ 		// Create a new model (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
 /******/ 			l: false,
 /******/ 			exports: {}
 /******/ 		};
 /******/
-/******/ 		// Execute the module function
+/******/ 		// Execute the model function
 /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/
-/******/ 		// Flag the module as loaded
+/******/ 		// Flag the model as loaded
 /******/ 		module.l = true;
 /******/
-/******/ 		// Return the exports of the module
+/******/ 		// Return the exports of the model
 /******/ 		return module.exports;
 /******/ 	}
 /******/
@@ -30,7 +30,7 @@
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
 /******/
-/******/ 	// expose the module cache
+/******/ 	// expose the model cache
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// define getter function for harmony exports
@@ -59,7 +59,7 @@
 /******/ 	// __webpack_public_path__
 /******/ 	__webpack_require__.p = "";
 /******/
-/******/ 	// Load entry module and return exports
+/******/ 	// Load entry model and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
@@ -110,9 +110,9 @@ module.exports = function(useSourceMap) {
 		}
 		for(i = 0; i < modules.length; i++) {
 			var item = modules[i];
-			// skip already imported module
+			// skip already imported model
 			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
+			//  when a model is imported multiple times with different media queries.
 			//  I hope this will never occur (Hey this way we have smaller bundles)
 			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
 				if(mediaQuery && !item[2]) {
@@ -687,7 +687,7 @@ if(false) {
 			update(newContent);
 		});
 	}
-	// When the module is disposed, remove the <style> tags
+	// When the model is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
 
@@ -699,7 +699,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 // imports
 
 
-// module
+// model
 exports.push([module.i, "* {\n  margin: 0;\n  padding: 0;\n}\nbody {\n  font: 14px/1.5 \"Microsoft YaHei\";\n  background: url(" + __webpack_require__(10) + ") repeat;\n}\nheader {\n  height: 60px;\n  line-height: 60px;\n  background-color: rgba(255, 255, 255, 0.9);\n  box-shadow: 0 1px 3px 5px rgba(0, 0, 0, 0.3);\n}\n.btn {\n  display: inline-block;\n  padding: 0 8px;\n  height: 40px;\n  line-height: 40px;\n  border-radius: 5px;\n  text-decoration: none;\n  background-color: #f197ca;\n  color: #fff;\n  text-align: center;\n  margin: 10px 20px;\n}\n.btn:hover {\n  background-color: #ee6357;\n}\n.add {\n  float: left;\n}\n.login {\n  float: right;\n}\n#content {\n  margin: 40px;\n  position: relative;\n  min-height: 600px;\n}\n", ""]);
 
 // exports
@@ -834,7 +834,6 @@ var NoteManager=(function () {
         });
     }
     function add() {
-        console.log("note");
         new Note();
     }
     return{
@@ -856,13 +855,6 @@ module.exports=NoteManager;
 var toast=__webpack_require__(4).toast;
 var event=__webpack_require__(3);
 
-/*
-* 有id 有文本
-* 先初始化 （设置ID，参数）
-* 创建节点（添加到html)
-* 随机颜色，设置布局
-* 笔记移动
-* */
 function Note(opts) {
    this.initOpt(opts);
    this.creatNote();
@@ -985,7 +977,6 @@ Note.prototype={
        });
     }
 };
-window.Note=Note;
 module.exports.Note=Note;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
@@ -1016,7 +1007,7 @@ if(false) {
 			update(newContent);
 		});
 	}
-	// When the module is disposed, remove the <style> tags
+	// When the model is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
 
@@ -1028,7 +1019,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 // imports
 
 
-// module
+// model
 exports.push([module.i, ".note {\n  position: absolute;\n  width: 200px;\n  min-height: 220px;\n  background-color: #00B7FF;\n  border-bottom-left-radius: 20px 500px;\n  border-bottom-right-radius: 500px 60px;\n  box-shadow: 0 4px 6px 3px rgba(0, 0, 0, 0.6);\n  margin-right: 30px;\n  margin-bottom: 30px;\n}\n.note:after {\n  position: absolute;\n  top: -25px;\n  left: 50%;\n  width: 50px;\n  height: 50px;\n  background-image: url(" + __webpack_require__(16) + ");\n  background-size: 100% 100%;\n  transform: translateX(-50%);\n  display: block;\n  content: '';\n}\n.note-head {\n  height: 30px;\n  background-color: rgba(0, 0, 0, 0.1);\n}\n.note-head .delete {\n  float: right;\n  color: #fff;\n  text-decoration: none;\n  margin-right: 10px;\n  line-height: 30px;\n  font-size: 16px;\n}\n.note-ct {\n  padding: 8px;\n  color: #fff;\n  font-size: 16px;\n}\n", ""]);
 
 // exports
@@ -1067,7 +1058,7 @@ if(false) {
 			update(newContent);
 		});
 	}
-	// When the module is disposed, remove the <style> tags
+	// When the model is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
 
@@ -1079,7 +1070,7 @@ exports = module.exports = __webpack_require__(1)(undefined);
 // imports
 
 
-// module
+// model
 exports.push([module.i, ".toast {\n  position: fixed;\n  left: 50%;\n  transform: translateX(50%);\n  color: #333;\n  background-color: #fff;\n  padding: 8px;\n  box-shadow: 1px 0 3px 0 rgba(0, 0, 0, 0.3);\n  border-radius: 5px;\n  display: none;\n}\n", ""]);
 
 // exports
