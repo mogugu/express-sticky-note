@@ -3,6 +3,9 @@
     margin: 0;
     padding:0;
 }
+li{
+  list-style: none;
+}
 body{
     font: 14px/1.5  "Microsoft YaHei";
     background: url("../img/center.jpg") repeat;
@@ -14,19 +17,39 @@ header{
     box-shadow: 0 1px 3px 5px rgba(0,0,0,.3);
 }
 .btn{
-    display: inline-block;
-    padding: 0 8px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 5px;
-    text-decoration: none;
-    background-color: #f197ca;
-    color: #fff;
-    text-align: center;
-    margin: 10px 20px;
+  display: inline-block;
+  padding: 0 8px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #f197ca;
+  color: #fff !important;
+  text-align: center;
+  margin: 10px 20px;
 }
 .btn:hover{
-    background-color: #ee6357;
+  background-color: #ee6357;
+}
+.user-data{
+  float: right;
+  margin-right: 10px;
+}
+.user-data li{
+  display: inline-block;
+  padding: 0 6px;
+  line-height: 60px;
+  color: #333;
+}
+.user-data li a{
+  text-decoration: none;
+  color: #333;
+}
+.user-data li>img{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
 }
 .add{
     float: left;

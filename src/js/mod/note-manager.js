@@ -3,14 +3,17 @@ var toast=require("./toast.js").toast;
 var waterfall=require('./waterfall.js');
 var event=require('./event.js');
 
+
 var NoteManager=(function () {
     function load() {
         $.get("/api/notes").done(function (res) {
             if(res.status===0){
+                console.log(res.data);
                 $.each(res.data,function (idx,arc) {
                     new Note({
                         id: arc.id,
-                        context: arc.text
+                        context: arc.text,
+                        user: arc.username
                     })
                 });
                 event.fire('waterfall');

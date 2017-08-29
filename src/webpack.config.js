@@ -5,16 +5,19 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports={
     entry: __dirname+"/js/app/index.js",
     output:{
-        path: path.join(__dirname,"../public/js"),
+        path: path.join(__dirname,"../public"),
         filename: "index.js"
     },
     module: {
         rules: [{
             test: /\.less$/,
-            use: ["style-loader","css-loader", "less-loader"]
+            use: ExtractTextPlugin.extract({
+                fallback: "style-loader",
+                use: ["css-loader", "less-loader"]
+            })
         },{
             test: /\.(png|jpg)$/,
-            use: 'url-loader?limit=8192$name=img/[name]'
+            use: 'url-loader?limit=8192$name=images/[hash:8].[name].[ext]'
         }]
     },
     resolve:{
@@ -26,6 +29,7 @@ module.exports={
     plugins: [
         new webpack.ProvidePlugin({
             $: "jquery"
-        })
+        }),
+        new ExtractTextPlugin("index.css")
     ]
 };

@@ -5,7 +5,7 @@ var sequelize = new Sequelize(undefined,undefined,undefined,{
     dialect: 'sqlite',
 
     // SQLite only
-    storage: path.join(__dirname,'../database/database.sqlite')
+    storage: path.join(__dirname,'../database/userdata.sqlite')
 });
 
 // sequelize.authenticate().then(function (err) {
@@ -15,24 +15,25 @@ var sequelize = new Sequelize(undefined,undefined,undefined,{
 // });
 
 //对应一个表
-//id text uid creatdate updatedate
-var Note = sequelize.define('note', {
-    text: {
+//id uid username creatdate updatedate
+var User = sequelize.define('user', {
+    uid: {
         type: Sequelize.STRING
     },
-    uid:{
+    username:{
         type:Sequelize.STRING
     }
 });
 
-Note.sync();
-// Note.sync({force: true}).then(function () {
+User.sync();
+// User.sync({force: true}).then(function () {
 //     // Table created
-//     return Note.create({
-//         text: 'Hello node'
+//     return User.create({
+//         uid: '1111',
+//         username: "lidd"
 //     });
 // });
-// Note.findAll().then(function (note) {
-//     console.log(note);
+// User.findAll().then(function (user) {
+//     console.log(user);
 // });
-module.exports=Note;
+module.exports= User;

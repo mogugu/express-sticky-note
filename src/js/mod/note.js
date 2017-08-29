@@ -25,10 +25,12 @@ Note.prototype={
     creatNote:function () {
        var tpl="<div class='note'><div class='note-head'><a href='#' class='delete'>×</a></div>";
             tpl += "<div class='note-ct' contenteditable='true'></div>";
+            tpl += "<span class='user-owner'></span>";
             tpl += "</div>";
        this.$note=$(tpl);
        this.$note.find(".note-ct").text(this.opts.context);
        this.opts.$ct.append(this.$note);
+       this.$note.find(".user-owner").text(this.opts.user);
        if(!this.id)
            this.$note.css("bottom","10px") ;//新增的摆放
     },
@@ -120,7 +122,7 @@ Note.prototype={
                self.$note.remove();
                event.fire("waterfall");
            }else{
-               totost("error wrong!");
+               toast(res.errorMsg);
            }
        });
     }
