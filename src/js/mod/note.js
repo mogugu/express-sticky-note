@@ -104,6 +104,7 @@ Note.prototype={
     add:function (msg) {
         console.log("added......");
        var self=this;
+       self.$note.css("bottom","");
        $.post("/api/note/create",{note:msg}).done(function (res) {
            if(res.status===0){
                toast("add success");

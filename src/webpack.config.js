@@ -6,7 +6,8 @@ module.exports={
     entry: __dirname+"/js/app/index.js",
     output:{
         path: path.join(__dirname,"../public"),
-        filename: "index.js"
+        filename: "index.js",
+        publicPath: "../"
     },
     module: {
         rules: [{
@@ -17,7 +18,7 @@ module.exports={
             })
         },{
             test: /\.(png|jpg)$/,
-            use: 'url-loader?limit=8192$name=images/[hash:8].[name].[ext]'
+            use: 'url-loader?limit=8192 &name=images/[hash:8].[name].[ext]'
         }]
     },
     resolve:{
@@ -30,6 +31,6 @@ module.exports={
         new webpack.ProvidePlugin({
             $: "jquery"
         }),
-        new ExtractTextPlugin("index.css")
+        new ExtractTextPlugin("css/index.css")
     ]
 };

@@ -6,8 +6,9 @@ li {
   list-style: none;
 }
 body {
+  position: relative;
   font: 14px/1.5 "Microsoft YaHei";
-  background: url(cd2b80ea3106f70492cbce65443d72df.jpg) repeat;
+  background: url(../images/474e22f4.center.jpg) repeat;
 }
 header {
   height: 60px;
@@ -119,4 +120,116 @@ header {
   box-shadow: 1px 0 3px 0 rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   display: none;
+}
+#loadingDiv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 99;
+}
+.circle-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 64px;
+  margin-top: -32px;
+  margin-left: -32px;
+  animation: rotate-animation 5s infinite;
+  transform-origin: 16px 16px;
+  animation-timing-function: linear;
+}
+.circle-loader .circle-line {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  width: 64px;
+  height: 24px;
+  transform-origin: 4px 4px;
+}
+.circle-loader .circle-line:nth-child(1) {
+  transform: rotate(90deg);
+}
+.circle-loader .circle-line:nth-child(2) {
+  transform: rotate(180deg);
+}
+.circle-loader .circle-line:nth-child(3) {
+  transform: rotate(270deg);
+}
+.circle-loader .circle-line:nth-child(4) {
+  transform: rotate(360deg);
+}
+.circle-loader .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  animation: move-animation 2.5s infinite;
+  animation-timing-function: linear;
+}
+.circle-loader .circle:nth-child(1) {
+  width: 8px;
+  height: 8px;
+  margin-top: -4px;
+  margin-left: -4px;
+  animation-delay: -0.3s;
+}
+.circle-loader .circle:nth-child(2) {
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  margin-left: -8px;
+  animation-delay: -0.6s;
+}
+.circle-loader .circle:nth-child(3) {
+  width: 24px;
+  height: 24px;
+  margin-top: -12px;
+  margin-left: -12px;
+  animation-delay: -0.9s;
+}
+.circle-loader .circle-blue {
+  background-color: #1f4e5a;
+}
+.circle-loader .circle-green {
+  background-color: #00a691;
+}
+.circle-loader .circle-yellow {
+  background-color: #ffb265;
+}
+.circle-loader .circle-red {
+  background-color: #ff5955;
+}
+@keyframes move-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-64px, 0);
+  }
+  75% {
+    transform: translate(32px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes rotate-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.cover {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

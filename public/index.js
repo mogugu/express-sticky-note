@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "../";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 4);
@@ -198,7 +198,21 @@ module.exports=waterFall;
 var noteManager=__webpack_require__(7);
 var waterfall=__webpack_require__(3);
 var event=__webpack_require__(1);
-noteManager.load();
+var loader=__webpack_require__(11);
+
+loader.init();
+
+document.onreadystatechange = completeLoading;
+//加载状态为complete时移除loading效果
+function completeLoading() {
+    if (document.readyState === "complete") {
+        var loading=$("#loadingDiv");
+        loading.remove();
+        noteManager.load();
+    }
+}
+
+//noteManager.load();
 $(".add").on("click",function () {
     console.log("adddd");
     noteManager.add();
@@ -378,6 +392,7 @@ Note.prototype={
     add:function (msg) {
         console.log("added......");
        var self=this;
+       self.$note.css("bottom","");
        $.post("/api/note/create",{note:msg}).done(function (res) {
            if(res.status===0){
                toast("add success");
@@ -412,6 +427,37 @@ module.exports.Note=Note;
 
 /***/ }),
 /* 10 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(12);
+
+var loader=(function () {
+    function init() {
+        var opts = "<div id='loadingDiv'><div class='circle-loader'>";
+        opts += "<div class='circle-line'><div class='circle circle-blue'></div><div class='circle circle-blue'></div><div class='circle circle-blue'></div></div>";
+        opts += "<div class='circle-line'><div class='circle circle-green'></div><div class='circle circle-green'></div><div class='circle circle-green'></div></div>";
+        opts += "<div class='circle-line'><div class='circle circle-red'></div><div class='circle circle-red'></div><div class='circle circle-red'></div></div>";
+        opts += "<div class='circle-line'><div class='circle circle-yellow'></div><div class='circle circle-yellow'></div><div class='circle circle-yellow'></div></div>";
+        opts += "</div></div>"
+        $("body").append(opts);
+    }
+    return{
+        init:init
+    }
+})();
+module.exports=loader;
+
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
